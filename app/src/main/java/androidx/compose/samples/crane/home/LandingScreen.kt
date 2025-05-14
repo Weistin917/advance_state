@@ -32,6 +32,7 @@ import kotlinx.coroutines.delay
 private const val SplashWaitTime: Long = 2000
 
 @Composable
+// Create a Screen to handle the loading data timeout. Stops the Landing screen once the data is loaded.
 fun LandingScreen(onTimeout: () -> Unit, modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         // TODO Codelab: LaunchedEffect and rememberUpdatedState step

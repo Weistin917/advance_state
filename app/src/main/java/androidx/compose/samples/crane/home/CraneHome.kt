@@ -60,6 +60,7 @@ fun CraneHome(
             CraneDrawer()
         }
     ) { padding ->
+        // Create a scope where coroutines can be called, in this case the drawerState.open() function.
         val scope = rememberCoroutineScope()
         CraneHomeContent(
             modifier = modifier.padding(padding),
@@ -83,6 +84,7 @@ fun CraneHomeContent(
     viewModel: MainViewModel = viewModel(),
 ) {
     // TODO Codelab: collectAsStateWithLifecycle step - consume stream of data from the ViewModel
+
     val suggestedDestinations: List<ExploreModel> by viewModel.suggestedDestinations.collectAsStateWithLifecycle()
 
     val onPeopleChanged: (Int) -> Unit = { viewModel.updatePeople(it) }

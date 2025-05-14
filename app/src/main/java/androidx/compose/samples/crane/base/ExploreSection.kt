@@ -83,9 +83,7 @@ fun ExploreSection(
                 val listState = rememberLazyListState()
                 ExploreList(exploreList, onItemClicked, listState = listState)
 
-                // Show the button if the first visible item is past
-                // the first item. We use a remembered derived state to
-                // minimize unnecessary compositions
+                // Use derivedStateOf so that the showButton only recomposes if the state from which it is derived from has a different value from last time.
                 val showButton by remember {
                     derivedStateOf {
                         listState.firstVisibleItemIndex > 0

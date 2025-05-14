@@ -37,7 +37,7 @@ class MainViewModel @Inject constructor(
     @DefaultDispatcher private val defaultDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
-    // List of suggested destinations and a public immutable view of this list
+    // Create a state to hold the list of suggested destinations, and export a immutable state of the list to the view.
     private val _suggestedDestinations = MutableStateFlow<List<ExploreModel>>(emptyList())
     val suggestedDestinations: StateFlow<List<ExploreModel>> = _suggestedDestinations.asStateFlow()
     init {

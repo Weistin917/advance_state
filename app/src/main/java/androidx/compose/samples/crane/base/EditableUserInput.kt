@@ -56,6 +56,7 @@ class EditableUserInputState(private val hint: String, initialText: String) {
 }
 
 @Composable
+// Remember the state of the user input
 fun rememberEditableUserInputState(hint: String): EditableUserInputState =
     rememberSaveable(hint, saver = EditableUserInputState.Saver) {
         EditableUserInputState(hint, hint)
@@ -68,6 +69,7 @@ fun CraneEditableUserInput(
     @DrawableRes vectorImageId: Int? = null
 ) {
     // TODO Codelab: Encapsulate this state in a state holder
+    // Have it inside a state holder to persist throughout recompositions or recreations.
     CraneBaseUserInput(
         caption = caption,
         tintIcon = { !state.isHint },

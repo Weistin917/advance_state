@@ -112,6 +112,7 @@ fun DetailsScreen(
     viewModel: DetailsViewModel = viewModel()
 ) {
     // TODO Codelab: produceState step - Show loading screen while fetching city details
+    // Map the screen to show using a ui state created from the API produceState.
     val uiState by produceState(initialValue = DetailsUiState(isLoading = true)) {
         val cityDetailsResult = viewModel.cityDetails
         value = if (cityDetailsResult is Result.Success<ExploreModel>) {
